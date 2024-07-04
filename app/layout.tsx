@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import MainNav from "@/components/MainNav";
+import type { Metadata } from 'next'
+import { Poppins } from 'next/font/google'
+import './globals.css'
+import MainNav from '@/components/MainNav'
 
 const poppins = Poppins({
-  subsets: ["latin"],
+  subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
-});
+})
 
 export const metadata: Metadata = {
-  title: "TechTick",
-  description: "Ticketing app for Tech company",
-};
+  title: 'TechTick',
+  description: 'Ticketing app for Tech company',
+}
 
 export default function RootLayout({
   children,
@@ -19,11 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={poppins.className}>
-        <MainNav />  
-        {children}
+        <nav className='flex flex-col items-center border-b mb-5 px-5 py-3'>
+          <div className='max-w-6xl w-full'>
+            <MainNav />
+          </div>
+        </nav>
+        <main className='flex flex-col items-center'>
+          <div className='max-w-6xl w-full'>{children}</div>
+        </main>
       </body>
     </html>
-  );
+  )
 }
